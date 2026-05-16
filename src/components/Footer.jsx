@@ -23,11 +23,23 @@ const quickLinks = [
 ]
 
 const socials = [
-  { name: 'f', label: 'Facebook' },
-  { name: 'X', label: 'Twitter' },
-  { name: 'in', label: 'LinkedIn' },
-  { name: '◎', label: 'Instagram' },
+  {
+    name: 'f',
+    label: 'Facebook',
+    url: 'https://www.facebook.com/TheOpenLensMedia',
+  },
+  {
+    name: 'in',
+    label: 'LinkedIn',
+    url: 'https://www.linkedin.com/company/open-lens-media-private-limited/posts/?feedView=all',
+  },
+  {
+    name: '◎',
+    label: 'Instagram',
+    url: 'https://www.instagram.com/theopenlensmedia/',
+  },
 ]
+
 
 export default function Footer({ dark }) {
   const footerRef = useRef(null)
@@ -176,20 +188,25 @@ export default function Footer({ dark }) {
 
           <h3 className="mt-8 text-2xl font-black">Stay Connected</h3>
 
-          <div className="mt-5 flex flex-wrap gap-3">
-            {socials.map((social) => (
-              <button
-                key={social.label}
-                aria-label={social.label}
-                className={`grid h-11 w-11 place-items-center rounded-full border text-sm font-black transition hover:-translate-y-1 hover:border-[#e81c7e] hover:bg-[#e81c7e] hover:text-white ${dark
-                  ? 'border-white/20 text-gray-300'
-                  : 'border-gray-300 text-gray-600'
-                  }`}
-              >
-                {social.name}
-              </button>
-            ))}
-          </div>
+      <div className="mt-5 flex flex-wrap gap-3">
+  {socials.map((social) => (
+    <a
+      key={social.label}
+      href={social.url}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={social.label}
+      className={`grid h-11 w-11 place-items-center rounded-full border text-sm font-black transition hover:-translate-y-1 hover:border-[#e81c7e] hover:bg-[#e81c7e] hover:text-white ${
+        dark
+          ? 'border-white/20 text-gray-300'
+          : 'border-gray-300 text-gray-600'
+      }`}
+    >
+      {social.name}
+    </a>
+  ))}
+</div>
+
         </div>
       </div>
 
